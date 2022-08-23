@@ -24,6 +24,9 @@ const Header = () => {
                     <Link href="/contact">Contact</Link>
                 </nav>
             </div>
+            <div className={`container ${styles.bigTitle}`}>
+                <h2>Blog Page</h2>
+            </div>
         </header>
     );
 }
