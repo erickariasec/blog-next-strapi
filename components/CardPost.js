@@ -1,17 +1,26 @@
 import Image from "next/image";
+import styles from "../styles/CardPost.module.css";
+import Link from "next/link";
+import { formatDate } from "../Helpers";
 
 // Desestructuracion
-const CardPost = ({ title, description, id, image }) => {
+const CardPost = ({ title, description, id, image, date, url }) => {
     return (
-        <article>
-            <Image
-                src={`http://localhost:1337${image}`}
-                width={350}
-                height={200}
-                alt={title}
-            />
-            <h2>From Card Post</h2>
-        </article>
+        <Link href={`/blog/${url}`}>
+            <article className={styles.cardPost}>
+                <Image
+                    src={`http://localhost:1337${image}`}
+                    width={350}
+                    height={200}
+                    alt={title}
+                />
+                <div>
+                    <h3>{title}</h3>
+                    <p>{formatDate(date)}</p>
+                    <p>{description}</p>
+                </div>
+            </article>
+        </Link>
     );
 }
 

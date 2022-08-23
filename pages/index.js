@@ -8,20 +8,22 @@ export default function Home({ posts }) {
     console.log(posts); // Show in browser console (frontend)
 
     return (
-        <div className={styles.container}>
+        <div>
             <Layout namePage="Home" titleHero="Blog Page">
-                <div className='container'>
-                    {
-                        posts.map(item => (
+                <div className="container">
+                    <div className={styles.contentCard}>
+                        {posts.map((item) => (
                             <CardPost
-                                key = {item._id}
-                                id = {item._id}
-                                title = {item.title}
-                                image = {item.image[0].formats.small.url}
-                                description = {item.description}
+                                key={item._id}
+                                id={item._id}
+                                title={item.title}
+                                image={item.image[0].formats.small.url}
+                                description={item.description}
+                                date={item.createdAt}
+                                url={item.url}
                             />
-                        ))
-                    }
+                        ))}
+                    </div>
                 </div>
             </Layout>
         </div>
