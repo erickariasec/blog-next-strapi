@@ -10,7 +10,7 @@ const Single = ({ single }) => {
         <Layout namePage={title} titleHero={title} isSingle="titleHero">
             <div className={styles.singlePost}>
                 <Image
-                    src={`http://localhost:1337${image[0].url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${image[0].url}`}
                     width={800}
                     height={400}
                     alt={title}
@@ -27,7 +27,7 @@ export default Single;
 export async function getServerSideProps({ query }) {
     const { url } = query;
     // Generating API call
-    const urlAPI = `http://localhost:1337/blogs?url=${url}`; // Get all blog posts
+    const urlAPI = `${process.env.API_URL_ENV}/blogs?url=${url}`; // Get all blog posts
     const response = await fetch(urlAPI);
     const responseJSON = await response.json();
     console.log(responseJSON); // Show in server console, not frontend (web browser)

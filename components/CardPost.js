@@ -9,7 +9,7 @@ const CardPost = ({ title, description, id, image, date, url }) => {
         <Link href={`/blog/${url}`}>
             <article className={styles.cardPost}>
                 <Image
-                    src={`http://localhost:1337${image}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${image}`}
                     width={350}
                     height={200}
                     alt={title}

@@ -32,7 +32,7 @@ export default function Home({ posts }) {
 
 export async function getServerSideProps() {
     // Generating API call
-    const urlAPI = "http://localhost:1337/blogs"; // Get all blog posts
+    const urlAPI = `${process.env.API_URL_ENV}/blogs`; // Get all blog posts
     const response = await fetch(urlAPI);
     const responseJSON = await response.json();
     console.log(responseJSON); // Show in server console, not frontend (web browser)
