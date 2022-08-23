@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
       <div className={styles.container}>
-          <Layout>
+          <Layout namePage="Home" titleHero="Blog Page">
               <h2>Home Page</h2>
           </Layout>
       </div>
